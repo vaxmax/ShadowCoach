@@ -1,0 +1,237 @@
+.panel {
+  background: var(--surface-2);
+  border: 1px solid var(--border-2);
+  border-left: 3px solid var(--accent);
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-top: 12px;
+  padding: 14px 18px;
+  animation: slideIn 0.15s ease;
+}
+
+@keyframes slideIn {
+  from { opacity: 0; transform: translateY(-6px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.title {
+  color: var(--text-2);
+  font-size: 0.82rem;
+}
+
+.title strong {
+  color: var(--text-1);
+  font-size: 0.9rem;
+}
+
+.close {
+  background: none;
+  border: none;
+  color: var(--text-3);
+  cursor: pointer;
+  font-size: 0.78rem;
+  padding: 2px 6px;
+  transition: color 0.15s;
+}
+
+.close:hover { color: var(--text-2); }
+
+.hint {
+  color: var(--text-3);
+  font-size: 0.75rem;
+}
+
+.controls {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.audioRow {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+.listenBtn {
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  color: var(--text-2);
+  cursor: pointer;
+  font-family: inherit;
+  font-size: 0.75rem;
+  font-weight: 600;
+  padding: 5px 12px;
+  transition: border-color 0.15s, color 0.15s;
+}
+
+.listenBtn:hover {
+  border-color: var(--accent);
+  color: var(--text-1);
+}
+
+/* ── Buttons ─────────────────────────────────────────── */
+.recordBtn,
+.stopBtn {
+  align-items: center;
+  border-radius: 7px;
+  cursor: pointer;
+  display: inline-flex;
+  font-family: inherit;
+  font-size: 0.8rem;
+  font-weight: 600;
+  gap: 7px;
+  padding: 8px 18px;
+  border: none;
+  width: fit-content;
+  transition: box-shadow 0.15s, transform 0.1s;
+}
+
+.recordBtn {
+  background: var(--rec);
+  color: #fff;
+}
+
+.recordBtn:hover {
+  box-shadow: 0 3px 14px var(--rec-glow);
+  transform: translateY(-1px);
+}
+
+.stopBtn {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  color: var(--text-1);
+}
+
+.dot {
+  background: #fff;
+  border-radius: 50%;
+  display: inline-block;
+  height: 8px;
+  width: 8px;
+}
+
+.square {
+  background: var(--text-1);
+  border-radius: 2px;
+  display: inline-block;
+  height: 8px;
+  width: 8px;
+}
+
+/* ── Timer ───────────────────────────────────────────── */
+.recordingRow { display: flex; align-items: center; gap: 12px; }
+
+.timer {
+  align-items: center;
+  color: var(--text-2);
+  display: flex;
+  font-size: 0.82rem;
+  font-variant-numeric: tabular-nums;
+  gap: 7px;
+}
+
+.pulse {
+  animation: pulse 1s ease-in-out infinite;
+  background: var(--rec);
+  border-radius: 50%;
+  box-shadow: 0 0 5px var(--rec-glow);
+  display: inline-block;
+  height: 7px;
+  width: 7px;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50%       { opacity: 0.3; transform: scale(0.7); }
+}
+
+.analyzing {
+  color: var(--text-3);
+  font-size: 0.78rem;
+}
+
+/* ── Result ──────────────────────────────────────────── */
+.result {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.scoreLine {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+}
+
+.scoreVal {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 1.4rem;
+  font-weight: 700;
+  letter-spacing: -0.03em;
+}
+
+.scoreLabel {
+  font-size: 0.75rem;
+  font-weight: 600;
+}
+
+.breakdown {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.breakdownRow {
+  display: flex;
+  gap: 6px;
+  font-size: 0.72rem;
+  align-items: baseline;
+}
+
+.breakdownKey {
+  color: var(--text-3);
+  min-width: 56px;
+}
+
+.delta {
+  color: var(--text-3);
+  font-size: 0.72rem;
+}
+
+.notDetected {
+  color: var(--error);
+  font-size: 0.75rem;
+  font-style: italic;
+}
+
+.retryBtn {
+  background: var(--accent-dim);
+  border: 1px solid var(--accent);
+  border-radius: 6px;
+  color: var(--accent-hover);
+  cursor: pointer;
+  font-family: inherit;
+  font-size: 0.72rem;
+  font-weight: 600;
+  margin-left: auto;
+  padding: 5px 12px;
+  transition: background 0.15s;
+}
+
+.retryBtn:hover { background: rgba(59,130,246,0.14); }
+
+.error {
+  color: var(--error);
+  font-size: 0.75rem;
+}

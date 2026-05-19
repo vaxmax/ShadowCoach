@@ -1,0 +1,29 @@
+services:
+  api:
+    build:
+      context: ./api
+      dockerfile: Dockerfile.cpu
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./api:/app
+      - models_cache:/app/models
+      - audio_cache:/app/generated
+    restart: unless-stopped
+    environment:
+      - SHADOW_DEVICE=cpu
+
+  web:
+    build: ./web
+    ports:
+      - "5173:5173"
+    volumes:
+      - ./web:/app
+      - /app/node_modules
+    depends_on:
+      - api
+    restart: unless-stopped
+
+volumes:
+  models_cache:
+  audio_cache:

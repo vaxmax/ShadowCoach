@@ -1,0 +1,32 @@
+[tool.ruff]
+target-version = "py311"
+line-length = 100
+
+[tool.ruff.lint]
+select = [
+    "E",   # pycodestyle errors
+    "W",   # pycodestyle warnings
+    "F",   # pyflakes (unused imports, undefined names)
+    "I",   # isort
+    "B",   # flake8-bugbear (common bug patterns)
+    "UP",  # pyupgrade (modern Python idioms)
+    "S",   # bandit-style security rules (subset)
+    "RUF", # ruff-specific rules
+]
+ignore = [
+    "S101",  # assert statements (used in tests)
+    "B008",  # function calls in default args (FastAPI pattern)
+]
+
+[tool.ruff.lint.isort]
+known-first-party = ["config", "routers", "services"]
+
+[tool.ruff.lint.per-file-ignores]
+"tests/**" = ["S", "F811"]  # allow security patterns and redefinitions in tests
+
+[tool.mypy]
+python_version = "3.11"
+ignore_missing_imports = true
+warn_unused_ignores = true
+warn_return_any = false
+no_implicit_optional = true

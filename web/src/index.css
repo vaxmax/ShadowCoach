@@ -1,0 +1,114 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,400;0,500;0,600;1,400&family=Space+Grotesk:wght@700;800&display=swap');
+
+/* ── Design tokens ───────────────────────────────────── */
+:root {
+  /* Backgrounds */
+  --bg:          #0F172A;
+  --surface:     #111827;
+  --surface-2:   #1a2638;
+
+  /* Borders */
+  --border:      #1e293b;
+  --border-2:    #2d4060;
+  --border-focus:#3B82F6;
+
+  /* Text */
+  --text-1:      #E5E7EB;
+  --text-2:      #9CA3AF;
+  --text-3:      #4B5563;
+
+  /* Accent — blue (precise, technical) */
+  --accent:      #3B82F6;
+  --accent-hover:#60A5FA;
+  --accent-glow: rgba(59, 130, 246, 0.20);
+  --accent-dim:  rgba(59, 130, 246, 0.09);
+
+  /* Semantic */
+  --success:     #22C55E;
+  --warning:     #F59E0B;
+  --error:       #EF4444;
+  --rec:         #EF4444;
+  --rec-glow:    rgba(239, 68, 68, 0.28);
+}
+
+/* ── Reset ───────────────────────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  background: var(--bg);
+  color: var(--text-1);
+  min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  line-height: 1.5;
+}
+
+::selection { background: var(--accent-glow); color: var(--text-1); }
+
+/* ── Scrollbar ───────────────────────────────────────── */
+::-webkit-scrollbar              { width: 5px; height: 5px; }
+::-webkit-scrollbar-track        { background: transparent; }
+::-webkit-scrollbar-thumb        { background: var(--border-2); border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover  { background: var(--border-focus); }
+
+/* ── Learning module — markdown review styles ─────────── */
+.lesson-review h2 {
+  color: #c4b5fd;
+  font-size: 16px;
+  font-weight: 700;
+  margin: 24px 0 10px;
+  padding-bottom: 6px;
+  border-bottom: 1px solid #2a2a3e;
+}
+.lesson-review h3 {
+  color: #a593f5;
+  font-size: 14px;
+  font-weight: 600;
+  margin: 16px 0 8px;
+}
+.lesson-review p { margin: 0 0 10px; color: #ccc; line-height: 1.7; }
+.lesson-review ul, .lesson-review ol {
+  margin: 0 0 12px 20px;
+  color: #ccc;
+  line-height: 1.7;
+}
+.lesson-review li { margin-bottom: 4px; }
+.lesson-review strong { color: #e0e0ff; font-weight: 600; }
+.lesson-review em { color: #f87171; font-style: italic; }
+.lesson-review code {
+  background: #1a1a2e;
+  border: 1px solid #2a2a3e;
+  border-radius: 4px;
+  padding: 1px 5px;
+  font-family: monospace;
+  font-size: 12px;
+  color: #7dd3fc;
+}
+.lesson-review table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 12px 0;
+  font-size: 13px;
+}
+.lesson-review th {
+  background: #1a1a2e;
+  color: #c4b5fd;
+  padding: 7px 12px;
+  text-align: left;
+  border: 1px solid #2a2a3e;
+  font-weight: 600;
+}
+.lesson-review td {
+  color: #ccc;
+  padding: 6px 12px;
+  border: 1px solid #1e1e2e;
+}
+.lesson-review tr:nth-child(even) td { background: #12121e; }
+.lesson-review hr {
+  border: none;
+  border-top: 1px solid #2a2a3e;
+  margin: 16px 0;
+}

@@ -1,0 +1,340 @@
+/* ── Container ───────────────────────────────────────── */
+.container {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding: 20px 22px;
+}
+
+/* ── Header ──────────────────────────────────────────── */
+.header {
+  align-items: flex-start;
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.label {
+  color: var(--text-2);
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  padding-top: 2px;
+  text-transform: uppercase;
+}
+
+/* ── Score block ─────────────────────────────────────── */
+.scoreBlock {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 5px;
+}
+
+.scoreGrade {
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+/* Wrapper that holds pill + tooltip together */
+.scoreWrap {
+  position: relative;
+  display: inline-flex;
+}
+
+.scoreWrap:hover .scoreTip {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
+}
+
+/* Tooltip anchored to the score pill */
+.scoreTip {
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.12s ease, transform 0.12s ease;
+  transform: translateX(-50%) translateY(4px);
+
+  position: absolute;
+  bottom: calc(100% + 8px);
+  left: 50%;
+
+  background: var(--surface-2);
+  border: 1px solid var(--border-2);
+  border-top: 2px solid var(--accent);
+  border-radius: 8px;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.4);
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  min-width: 200px;
+  padding: 8px 12px 10px;
+  white-space: nowrap;
+  z-index: 100;
+}
+
+.scorePill {
+  position: relative;
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  height: 22px;
+  overflow: hidden;
+  width: 140px;
+  display: flex;
+  align-items: center;
+  cursor: default;
+}
+
+.scoreFill {
+  position: absolute;
+  left: 0; top: 0; bottom: 0;
+  border-radius: 8px;
+  opacity: 0.25;
+  transition: width 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.scoreNum {
+  position: relative;
+  font-size: 0.72rem;
+  font-weight: 700;
+  padding: 0 10px;
+  font-variant-numeric: tabular-nums;
+  z-index: 1;
+}
+
+.scoreMeta {
+  color: var(--text-3);
+  font-size: 0.68rem;
+}
+
+/* Score tooltip shared rows */
+.tipScore {
+  font-size: 0.75rem;
+  font-weight: 700;
+  padding-bottom: 4px;
+  border-bottom: 1px solid var(--border);
+  margin-bottom: 2px;
+}
+
+.tipRow {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  font-size: 0.7rem;
+  color: var(--text-2);
+}
+
+.tipKey { color: var(--text-3); }
+
+/* Arrow pointing down */
+.tipArrow {
+  position: absolute;
+  bottom: -5px;
+  left: 50%;
+  transform: translateX(-50%) rotate(45deg);
+  width: 8px;
+  height: 8px;
+  background: var(--surface-2);
+  border-right: 1px solid var(--border-2);
+  border-bottom: 1px solid var(--border-2);
+}
+
+/* ── Hint ────────────────────────────────────────────── */
+.hint {
+  color: var(--text-3);
+  font-size: 0.72rem;
+}
+
+.hintKey {
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  color: var(--text-2);
+  font-size: 0.68rem;
+  padding: 1px 6px;
+}
+
+/* ── Text / words ────────────────────────────────────── */
+.text {
+  font-size: 1.08rem;
+  line-height: 2.2;
+}
+
+.wordWrap {
+  display: inline;
+}
+
+.word {
+  border-radius: 3px;
+  cursor: pointer;
+  display: inline;
+  padding: 2px 3px;
+  margin: 0 -3px;
+  transition: opacity 0.1s, filter 0.1s;
+}
+
+.word:hover { filter: brightness(1.25); }
+
+.matched { /* color set via inline style */ }
+
+.missed {
+  color: var(--error);
+  text-decoration: underline;
+  text-decoration-style: dotted;
+  text-decoration-color: rgba(239,68,68,0.5);
+  text-underline-offset: 4px;
+}
+
+/* Selected word highlight */
+.wordSelected {
+  background: rgba(59,130,246,0.12);
+  box-shadow: 0 0 0 1px rgba(59,130,246,0.3);
+  border-radius: 3px;
+}
+
+/* ── Word detail panel ───────────────────────────────── */
+.detailPanel {
+  background: var(--surface-2);
+  border: 1px solid var(--border-2);
+  border-left: 3px solid var(--accent);
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 14px 18px;
+  animation: slideIn 0.12s ease;
+}
+
+@keyframes slideIn {
+  from { opacity: 0; transform: translateY(-4px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.detailHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.detailWord {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 1.05rem;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  color: var(--text-1);
+}
+
+.detailClose {
+  background: none;
+  border: none;
+  color: var(--text-3);
+  cursor: pointer;
+  font-size: 0.78rem;
+  padding: 2px 6px;
+  transition: color 0.15s;
+}
+
+.detailClose:hover { color: var(--text-2); }
+
+.detailBody {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.detailScoreRow {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.detailGrade {
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  min-width: 68px;
+}
+
+.detailBarWrap {
+  flex: 1;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 3px;
+  height: 6px;
+  overflow: hidden;
+}
+
+.detailBarFill {
+  height: 100%;
+  border-radius: 3px;
+  opacity: 0.8;
+  transition: width 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.detailPct {
+  font-size: 0.82rem;
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+  min-width: 36px;
+  text-align: right;
+}
+
+.detailMeta {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.detailRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 16px;
+  font-size: 0.75rem;
+  color: var(--text-2);
+}
+
+.detailKey {
+  color: var(--text-3);
+  min-width: 72px;
+}
+
+.detailNotDetected {
+  color: var(--error);
+  font-size: 0.8rem;
+}
+
+.detailTip {
+  display: flex;
+  gap: 8px;
+  align-items: flex-start;
+  padding-top: 10px;
+  border-top: 1px solid var(--border);
+  color: var(--text-2);
+  font-size: 0.78rem;
+  line-height: 1.5;
+}
+
+.detailTipIcon { flex-shrink: 0; }
+
+.detailDrillBtn {
+  align-self: flex-start;
+  background: var(--accent-dim);
+  border: 1px solid var(--accent);
+  border-radius: 6px;
+  color: var(--accent-hover);
+  cursor: pointer;
+  font-family: inherit;
+  font-size: 0.78rem;
+  font-weight: 600;
+  padding: 6px 14px;
+  transition: background 0.15s;
+}
+
+.detailDrillBtn:hover { background: rgba(59,130,246,0.14); }

@@ -1,0 +1,42 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+dist/
+*.egg
+
+# Type checking
+.mypy_cache/
+
+# Testing
+.pytest_cache/
+
+# Linting
+.ruff_cache/
+
+# Docker volumes / runtime data
+api/models/
+api/generated/
+Learnings/
+Reviews/
+Audio/
+
+# Environment secrets
+.env
+.env.*
+
+# Node
+web/node_modules/
+web/dist/
+
+# OS
+.DS_Store
+Thumbs.db
+*Zone.Identifier
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~

@@ -1,0 +1,185 @@
+/* ── Page ────────────────────────────────────────────── */
+.page {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  max-width: 860px;
+  margin: 0 auto;
+  padding: 0 28px 60px;
+  animation: fadeUp 0.22s ease;
+}
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(10px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ── Top bar ─────────────────────────────────────────── */
+.topBar {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  align-items: center;
+  background: var(--bg);
+  border-bottom: 1px solid var(--border);
+  display: flex;
+  gap: 14px;
+  padding: 11px 0;
+}
+
+.topBarBrand {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-shrink: 0;
+  margin-right: 2px;
+}
+
+.topBarLogo {
+  height: 22px;
+  width: 22px;
+  object-fit: contain;
+  opacity: 0.88;
+}
+
+.topBarName {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 0.88rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: var(--text-1);
+}
+
+.backBtn {
+  align-items: center;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  color: var(--text-2);
+  cursor: pointer;
+  display: flex;
+  flex-shrink: 0;
+  font-family: inherit;
+  font-size: 0.78rem;
+  font-weight: 500;
+  gap: 5px;
+  padding: 6px 12px;
+  transition: color 0.15s, border-color 0.15s, background 0.15s;
+  white-space: nowrap;
+}
+
+.backBtn:hover {
+  background: var(--surface-2);
+  border-color: var(--border-2);
+  color: var(--text-1);
+}
+
+.preview {
+  color: var(--text-3);
+  flex: 1;
+  font-size: 0.78rem;
+  font-style: italic;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.voiceBadge {
+  align-items: center;
+  background: var(--accent-dim);
+  border: 1px solid var(--accent-glow);
+  border-radius: 14px;
+  color: var(--accent-hover);
+  display: flex;
+  flex-shrink: 0;
+  font-size: 0.7rem;
+  font-weight: 600;
+  gap: 5px;
+  padding: 4px 12px;
+}
+
+/* ── API timing bar ──────────────────────────────────── */
+.timingRow {
+  display: flex;
+  gap: 18px;
+  padding: 5px 0;
+  border-bottom: 1px solid var(--border);
+  font-size: 0.67rem;
+  font-variant-numeric: tabular-nums;
+  color: var(--text-3);
+  letter-spacing: 0.02em;
+}
+
+/* ── Sections ────────────────────────────────────────── */
+.section {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding-top: 28px;
+}
+
+.sectionHead {
+  align-items: center;
+  display: flex;
+  gap: 10px;
+  justify-content: space-between;
+}
+
+.sectionLabel {
+  align-items: center;
+  color: var(--text-2);
+  display: flex;
+  font-size: 0.68rem;
+  font-weight: 700;
+  gap: 7px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.sectionLabel::before {
+  background: var(--accent);
+  border-radius: 50%;
+  content: '';
+  display: inline-block;
+  height: 6px;
+  width: 6px;
+}
+
+.shortcut {
+  color: var(--text-3);
+  font-size: 0.68rem;
+  font-variant-numeric: tabular-nums;
+}
+
+/* ── Status messages ─────────────────────────────────── */
+.analyzingMsg {
+  align-items: center;
+  color: var(--text-2);
+  display: flex;
+  font-size: 0.82rem;
+  gap: 8px;
+  padding: 4px 0;
+}
+
+.analyzingMsg::before {
+  border: 2px solid var(--border-2);
+  border-top-color: var(--accent);
+  border-radius: 50%;
+  content: '';
+  display: inline-block;
+  height: 12px;
+  width: 12px;
+  animation: spin 0.65s linear infinite;
+  flex-shrink: 0;
+}
+
+@keyframes spin { to { transform: rotate(360deg); } }
+
+.error {
+  color: var(--error);
+  font-size: 0.82rem;
+  padding: 10px 14px;
+  background: rgba(248, 113, 113, 0.07);
+  border: 1px solid rgba(248, 113, 113, 0.18);
+  border-radius: 8px;
+}

@@ -1,0 +1,490 @@
+/* ── Page ────────────────────────────────────────────── */
+.page {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  max-width: 860px;
+  margin: 0 auto;
+  padding: 0 28px 60px;
+  animation: fadeUp 0.22s ease;
+}
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(10px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ── Top bar ─────────────────────────────────────────── */
+.topBar {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  align-items: center;
+  background: var(--bg);
+  border-bottom: 1px solid var(--border);
+  display: flex;
+  gap: 14px;
+  padding: 11px 0;
+}
+
+.topBarBrand {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-shrink: 0;
+  margin-right: 2px;
+}
+
+.topBarLogo {
+  height: 22px;
+  width: 22px;
+  object-fit: contain;
+  opacity: 0.88;
+}
+
+.topBarName {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 0.88rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: var(--text-1);
+}
+
+.backBtn {
+  align-items: center;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  color: var(--text-2);
+  cursor: pointer;
+  display: flex;
+  flex-shrink: 0;
+  font-family: inherit;
+  font-size: 0.78rem;
+  font-weight: 500;
+  gap: 5px;
+  padding: 6px 12px;
+  transition: color 0.15s, border-color 0.15s, background 0.15s;
+}
+
+.backBtn:hover { background: var(--surface-2); border-color: var(--border-2); color: var(--text-1); }
+
+.title {
+  flex: 1;
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 1rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+.topActions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.actionBtn {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 7px;
+  color: var(--text-2);
+  cursor: pointer;
+  font-family: inherit;
+  font-size: 0.72rem;
+  font-weight: 500;
+  padding: 5px 11px;
+  transition: color 0.15s, border-color 0.15s;
+}
+
+.actionBtn:hover { color: var(--text-1); border-color: var(--border-2); }
+.danger { color: var(--error) !important; border-color: rgba(248,113,113,0.3) !important; }
+.danger:hover { background: rgba(248,113,113,0.07) !important; }
+
+.confirmRow { display: flex; align-items: center; gap: 8px; }
+.confirmText { color: var(--text-2); font-size: 0.72rem; }
+
+/* ── Section ─────────────────────────────────────────── */
+.section { display: flex; flex-direction: column; gap: 16px; padding-top: 28px; }
+
+.loadingMsg {
+  color: var(--text-3);
+  font-size: 0.85rem;
+  padding: 60px 0;
+  text-align: center;
+}
+
+/* ── Empty state ─────────────────────────────────────── */
+.emptyState {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  padding: 80px 0;
+  text-align: center;
+}
+
+.emptyTitle { color: var(--text-1); font-size: 1.1rem; font-weight: 600; }
+.emptyDesc  { color: var(--text-3); font-size: 0.85rem; }
+
+.emptyBtn {
+  background: var(--accent-dim);
+  border: 1px solid var(--accent);
+  border-radius: 9px;
+  color: var(--accent-hover);
+  cursor: pointer;
+  font-family: inherit;
+  font-size: 0.85rem;
+  font-weight: 600;
+  margin-top: 8px;
+  padding: 10px 22px;
+  transition: background 0.15s;
+}
+
+.emptyBtn:hover { background: rgba(59,130,246,0.14); }
+
+/* ── Stats grid ──────────────────────────────────────── */
+.statsGrid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+}
+
+@media (max-width: 540px) { .statsGrid { grid-template-columns: repeat(2, 1fr); } }
+
+.stat {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: 14px 16px;
+}
+
+.statNum {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 1.5rem;
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  line-height: 1;
+}
+
+.statLabel {
+  color: var(--text-3);
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+/* ── Sparkline ───────────────────────────────────────── */
+.sparklineWrap {
+  display: flex;
+  align-items: stretch;
+  gap: 8px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 14px 18px;
+}
+
+.sparklineYAxis {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  color: var(--text-3);
+  font-size: 0.62rem;
+  font-variant-numeric: tabular-nums;
+  text-align: right;
+  user-select: none;
+  flex-shrink: 0;
+  width: 28px;
+}
+
+.sparklineSvg {
+  flex: 1;
+  height: 60px;
+  display: block;
+}
+
+.noData {
+  color: var(--text-3);
+  font-size: 0.8rem;
+  padding: 20px;
+  text-align: center;
+}
+
+/* ── Phoneme insights ────────────────────────────────── */
+.sectionTitle {
+  color: var(--text-2);
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.phonemeList { display: flex; flex-direction: column; gap: 10px; }
+
+.phonemeRow {
+  display: grid;
+  grid-template-columns: 200px 1fr 44px 36px;
+  align-items: center;
+  gap: 12px;
+}
+
+@media (max-width: 540px) {
+  .phonemeRow { grid-template-columns: 130px 1fr 40px 30px; }
+}
+
+.phonemeMeta {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+}
+
+.phonemeLabel {
+  color: var(--text-1);
+  font-size: 0.78rem;
+  font-weight: 600;
+}
+
+.phonemeIpa {
+  color: var(--accent-hover);
+  font-size: 0.65rem;
+  opacity: 0.75;
+}
+
+.phonemeExample {
+  color: var(--text-3);
+  font-size: 0.65rem;
+  font-style: italic;
+}
+
+.phonemeBarWrap {
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  height: 8px;
+  overflow: hidden;
+}
+
+.phonemeBar {
+  border-radius: 4px;
+  height: 100%;
+  opacity: 0.8;
+  transition: width 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.phonemeScore {
+  font-size: 0.75rem;
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+  text-align: right;
+}
+
+.phonemeCount {
+  color: var(--text-3);
+  font-size: 0.68rem;
+  text-align: right;
+}
+
+/* ── Tabs ────────────────────────────────────────────── */
+.tabs {
+  display: flex;
+  border-bottom: 1px solid var(--border);
+  margin-top: 12px;
+  gap: 0;
+}
+
+.tab {
+  background: none;
+  border: none;
+  border-bottom: 2px solid transparent;
+  color: var(--text-3);
+  cursor: pointer;
+  font-family: inherit;
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  margin-bottom: -1px;
+  padding: 10px 16px;
+  transition: color 0.15s, border-color 0.15s;
+}
+
+.tab:hover { color: var(--text-2); }
+.tabActive { border-bottom-color: var(--accent); color: var(--text-1); }
+
+.tabCount {
+  background: var(--surface-2);
+  border-radius: 10px;
+  color: var(--text-3);
+  font-size: 0.65rem;
+  margin-left: 6px;
+  padding: 1px 6px;
+}
+
+/* ── Weak words table ────────────────────────────────── */
+.tableHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.tableHeaderLabel {
+  color: var(--text-3);
+  font-size: 0.72rem;
+}
+
+.drillBtn {
+  background: var(--accent-dim);
+  border: 1px solid var(--accent);
+  border-radius: 7px;
+  color: var(--accent-hover);
+  cursor: pointer;
+  font-family: inherit;
+  font-size: 0.75rem;
+  font-weight: 600;
+  padding: 6px 14px;
+  transition: background 0.15s;
+  white-space: nowrap;
+}
+
+.drillBtn:hover { background: rgba(59,130,246,0.14); }
+
+.table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+.table th {
+  border-bottom: 1px solid var(--border);
+  color: var(--text-3);
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  padding: 8px 12px;
+  text-align: left;
+  text-transform: uppercase;
+}
+
+.table td { padding: 9px 12px; }
+
+.wordRow {
+  border-bottom: 1px solid var(--border);
+  cursor: pointer;
+  transition: background 0.1s;
+}
+
+.wordRow:hover { background: var(--surface); }
+.wordRowExpanded { background: var(--surface); }
+
+.wordCell {
+  font-weight: 500;
+  font-size: 0.9rem;
+}
+
+.scorePill {
+  border: 1px solid;
+  border-radius: 5px;
+  font-size: 0.72rem;
+  font-weight: 700;
+  padding: 2px 8px;
+}
+
+.dimCell {
+  color: var(--text-3);
+  font-size: 0.78rem;
+}
+
+.chevron {
+  color: var(--text-3);
+  font-size: 0.6rem;
+  text-align: right;
+}
+
+/* ── Word expansion ──────────────────────────────────── */
+.expansionRow td { padding: 0 12px 12px; }
+
+.expansionContent {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 8px 0 2px;
+}
+
+.expansionLabel {
+  color: var(--text-3);
+  font-size: 0.7rem;
+  white-space: nowrap;
+}
+
+.scoreDots { display: flex; gap: 6px; flex-wrap: wrap; }
+
+.scoreDot {
+  border-radius: 5px;
+  color: #000;
+  font-size: 0.68rem;
+  font-weight: 700;
+  opacity: 0.85;
+  padding: 2px 7px;
+}
+
+/* ── Session history ─────────────────────────────────── */
+.sessionList { display: flex; flex-direction: column; gap: 10px; }
+
+.sessionCard {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 14px 18px;
+  transition: border-color 0.15s;
+}
+
+.sessionCard:hover { border-color: var(--border-2); }
+
+.sessionMeta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.sessionDate { color: var(--text-3); font-size: 0.72rem; }
+.sessionScore { font-size: 0.85rem; font-weight: 700; }
+
+.sessionText {
+  color: var(--text-2);
+  font-size: 0.82rem;
+  font-style: italic;
+  line-height: 1.5;
+}
+
+.sessionFooter {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 2px;
+}
+
+.sessionWords {
+  color: var(--text-3);
+  font-size: 0.7rem;
+}
+
+.repracticeBtn {
+  background: none;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  color: var(--text-2);
+  cursor: pointer;
+  font-family: inherit;
+  font-size: 0.72rem;
+  font-weight: 500;
+  padding: 4px 10px;
+  transition: color 0.15s, border-color 0.15s, background 0.15s;
+}
+
+.repracticeBtn:hover { background: var(--accent-dim); border-color: var(--accent); color: var(--accent-hover); }
